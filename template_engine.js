@@ -1,20 +1,22 @@
-let FileReader = require('filereader');
-const filestream = require('fs');
+const filesystem = require('fs');
 
 function render(template, data) {
-    const content = filestream.readFileSync(template);
+    const content = filesystem.readFileSync(template);
+    const contentstring = content.toString();
+    const chars = contentstring.split('');
+    console.log(chars);
 
-    for (let i = 0; i < content.length; i++) {
+    /* for (let i = 0; i < content.length; i++) {
         console.log(content[i]);
-    }
+    } */
 };
 
 exports.render = render;
 
 
 /* TODO
-- Engine liest template ein
-- Engine spuckt template als array aus
+- DONE: Engine liest template ein
+- DONE: Engine spuckt template als array aus
 - Läuft über jedes Element (char) in Array
 - sobald ein % kommt
     - guckt, ob das Zeichen davor ein < war
