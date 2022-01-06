@@ -1,11 +1,15 @@
 let FileReader = require('filereader');
+const filestream = require('fs');
 
-const render = (template, data) => {
-    let filereader = new FileReader();
-    console.log(filereader.result);
-}
+function render(template, data) {
+    const content = filestream.readFileSync(template);
 
-module.exports.render = render;
+    for (let i = 0; i < content.length; i++) {
+        console.log(content[i]);
+    }
+};
+
+exports.render = render;
 
 
 /* TODO
