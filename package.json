@@ -9,6 +9,7 @@
   "author": "chris",
   "license": "ISC",
   "dependencies": {
+    "dom-parser": "^0.1.6",
     "express": "^4.17.2"
   }
 }
