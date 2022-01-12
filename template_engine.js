@@ -1,31 +1,14 @@
 const filesystem = require('fs');
-var DomParser = require('dom-parser');
-var domparser = new DomParser();
 
 function render(template, data) {
-    const doc = domparser.parseFromString(template, "text/html");
-    console.log(doc);
-    //console.log(doc.lastChild.data);
 
-
-    /* const content = filesystem.readFileSync(template);
+    const content = filesystem.readFileSync(template);
     const contentstring = content.toString();
     const chars = contentstring.split('');
 
     for (let i = 0; i < chars.length; i++) {
-        if(chars[i] == '%') {
-            if(chars[i-1] == '<') {
-                if(chars[i+1] == '=') {
-                    if(chars[i+2] == ' ') {                        
-                        let searchedWord = chars.split('')[3];
-                        console.log(searchedWord);
-                        // Ich könnte das html auch nach tags splicen, dann im entsprechenden tag das ganze einlesen und am ende das _%> 
-                        // abschneiden (map?)
-                    }                    
-                }
-            }
-        }
-    } */
+        
+    }
 };
 
 exports.render = render;
@@ -41,4 +24,9 @@ exports.render = render;
     - wenn ein = ist, liest die folgende zusammenhängende char Abfolge ein
     - vergleicht das Wort mit den keys im data object
     - wenn Wort = key ist, dann wird Wort durch Value ersetzt
+- Immer auskommentierten Code am Ende des Arbeitstages löschen (intellektuelle und emotionale Belästigung)
+- if Schleifen geraten außerhalb des Codes (mit i-1 bei index 0)
+- ich habe die verzweigung am anfang nicht richtig gemacht mit den 3 fällen, über die ich an relevantem js-code stolpern kann (plain html, 
+    js-ausdruck und js-auszuführender code) 
+- stattdessen bin ich direkt in den einen spezialfall reingegangen (js-ausdruck)
 */
