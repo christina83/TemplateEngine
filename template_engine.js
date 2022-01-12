@@ -3,10 +3,18 @@ const filesystem = require('fs');
 function render(template, data) {
 
     const content = filesystem.readFileSync(template);
-    const contentstring = content.toString();
-    const chars = contentstring.split('');
+    const contentAsString = content.toString();
+    const charsArray = contentAsString.split('');
 
-    for (let i = 0; i < chars.length; i++) {
+    for (let i = 0; i < charsArray.length; i++) {
+
+        if(javascript_let) {
+            // Keene Ahnung
+        } else if (javascript_expression){
+            // <%= expression %>
+        } else if (javascript_literal) {
+            // <% auszuführender code %>
+        }
         
     }
 };
@@ -18,6 +26,7 @@ exports.render = render;
 - DONE: Engine liest template ein
 - DONE: Engine spuckt template als array aus
 - DONE: Läuft über jedes Element (char) in Array
+- Entscheidet, ob einer der 3 Fälle eingetreten ist durch das char
 - DONE: sobald ein % kommt
     - DONE: guckt, ob das Zeichen davor ein < war
     - DONE: wenn ja, guckt, ob das Zeichen danach ein Leerzeichen oder ein = ist
